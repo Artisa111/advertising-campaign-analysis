@@ -19,3 +19,26 @@ The expected output is a table presenting monthly advertising campaign data with
 
 ## Output Format
 The output will be a table with columns: `ad_month` (month), `utm_campaign` (campaign name), `total_spend`, `total_impressions`, `total_clicks`, `total_value`, `ctr`, `cpc`, `cpm`, `romi`, `cpm_diff_pct` (percentage change in CPM), `ctr_diff_pct` (percentage change in CTR), `romi_diff_pct` (percentage change in ROMI). The data will be ordered by month and campaign name.
+
+
+# פרויקט ניתוח ביצועי קמפיינים פרסומיים
+
+## מטרת הפרויקט
+מטרת פרויקט זה היא לאחד ולנתח נתונים של קמפיינים פרסומיים ממקורות שונים (פייסבוק וגוגל), במטרה לספק הערכה מקיפה של ביצועיהם החודשיים ולזהות שינויים משמעותיים במדדים המצריכים חקירה ואופטימיזציה נוספת.
+
+## תיאור קוד ה-SQL
+קוד ה-SQL מאחד נתוני פרסום יומיים מטבלאות `facebook_ads_basic_daily` ו-`google_ads_basic_daily`. הוא מקבץ נתונים אלה לפי חודש וקמפיין UTM, ומחשב מדדי מפתח כגון סך הוצאות (`total_spend`), חשיפות (`total_impressions`), קליקים (`total_clicks`) וערך (`total_value`). לאחר מכן, מחושבים מדדים נגזרים: CTR (שיעור הקלקה), CPC (עלות לקליק), CPM (עלות לאלף חשיפות) ו-ROMI (החזר השקעה שיווקית). לבסוף, הקוד מחשב את השינוי באחוזים מחודש לחודש עבור CPM, CTR ו-ROMI לכל קמפיין, ומסנן כדי להציג רק שינויים שאינם אפס.
+
+## תוצאות ותובנות צפויות
+התוצאה הצפויה היא טבלה המציגה נתונים חודשיים של קמפיינים פרסומיים עם מדדי ביצועים מחושבים (CTR, CPC, CPM, ROMI) ושינויי האחוזים שלהם מהחודש הקודם. ניתוח זה מאפשר לעסקים:
+* לזהות במהירות קמפיינים החווים שינויים משמעותיים בעלות (CPM), במעורבות (CTR) או בהחזר (ROMI).
+* למקד תשומת לב בקמפיינים הדורשים אופטימיזציה מיידית או חקירה נוספת.
+* לעקוב אחר מגמות ביצועי קמפיינים לאורך זמן.
+* לקבל החלטות מושכלות יותר לגבי הקצאת תקציב שיווקי.
+
+## טכנולוגיות בשימוש
+                                                                                                                 SQL (PostgreSQL)*
+* ניתוח נתונים (איחוד נתונים, חישוב מדדי מפתח, ניתוח סדרות זמן)
+
+## פורמט פלט
+הפלט יהיה טבלה עם עמודות: `ad_month` (חודש), `utm_campaign` (שם קמפיין), `total_spend`, `total_impressions`, `total_clicks`, `total_value`, `ctr`, `cpc`, `cpm`, `romi`, `cpm_diff_pct` (שינוי אחוזים ב-CPM), `ctr_diff_pct` (שינוי אחוזים ב-CTR), `romi_diff_pct` (שינוי אחוזים ב-ROMI). הנתונים יהיו ממוינים לפי חודש ושם קמפיין.
